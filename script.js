@@ -57,11 +57,17 @@ Array.prototype.forEach.call(tableCell, (cell) => {
             row.push(tableRow[i].children[column]);
             if(currentPlayer === 1) {
                 row[0].style.backgroundColor = player1Color;
-                if (horizontalCheck()) {
-                    return(alert('winner'));
+                if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()) {
+                    currentPlayer.textContent = `${player1} wins!`;
+                    currentPlayer.style.color = player1Color;
+                    return(alert(`${player1} WINS!!!`));
+                } else if (drawCheck) {
+                    currentPlayer.textContent = `Draw Game...`;
+                    return alert('DRAW!');
+                }else {
+                    currentPlayer.textContent = `${player2}'s turn!`;
+                    return currentPlayer = 2;
                 }
-                currentPlayer.textContent = `${player2}'s turn!`;
-                return currentPlayer = 2;
             } else {
                 row[0].style.backgroundColor = player2Color;
                 currentPlayer.textContent = `${player1}'s turn`;
@@ -96,6 +102,38 @@ let verticalCheck = () => {
                 return true;
             }
         }
+    }
+}
+
+let diagonalCheck1 = () => {
+    for (let col = 0; col < 4; col++) {
+        for (row = 0; row < 3; row++) {
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col+1].style.backgroundColor, tableRow[row+2].children[col+2].style.backgroundColor, tableRow[row+3].children[col+3].style.backgroundColor,)) {
+                return true;
+            }
+        }
+    }
+}
+
+let diagonalCheck2 = () => {
+    for (let col = 0; col < 4; col++) {
+        for (row = 5; row > 2; row--) {
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row-1].children[col+1].style.backgroundColor, tableRow[row-2].children[col+2].style.backgroundColor, tableRow[row-3].children[col+3].style.backgroundColor,)) {
+                return true;
+            }
+        }
+    }
+}
+
+let drawCheck = () => {
+    let fullBoard = [];
+    for (let i = 0; i < tableCell.length; i++) {
+        if (tableCell[i].style.backgroundColor !== 'whitesmoke') {
+            fullBoard.push(tableCell[i]);
+        }
+    }
+    if (fullBoard.length === tableCell.length) {
+        return true;
     }
 }
 
