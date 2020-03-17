@@ -49,6 +49,8 @@ let changeColor = (e) => {
             row.push(tableRow[i].children[column]);
             if(currentPlayer === 1) {
                 row[0].style.backgroundColor = player1Color;
+                currentPlayer.textContent = `${player2}'s turn!`
+                return currentPlayer = 2;
             }
         }
     }
