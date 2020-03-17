@@ -36,19 +36,19 @@ player2Color = 'orange';
 let playerGo = 1;
 currentPlayer.textContent = `${player1}'s turn!`;
 
-// add event listener to each cell
-//iterate through all the cells
-// when more js is added, make sure that it stays the same color 
-Array.prototype.forEach.call(tableCell, (cell) => {
-    cell.addEventListener('click', changeColor);
-    cell.style.backgroundColor = 'whitesmoke';
-})
-
 // take in an event (e)
 let changeColor = (e) => {
     let column = e.target.cellIndex;
     // empty array to push the cell into
     let row = [];
+
+// add event listener to each cell
+//iterate through all the cells
+// when more js is added, make sure that it stays the same color
+Array.prototype.forEach.call(tableCell, (cell) => {
+    cell.addEventListener('click', changeColor);
+    cell.style.backgroundColor = 'whitesmoke';
+})
 
     // starting with 5 to check the bottom index first. subtract 1 each time
     for (let i = 5; i > -1; i--) {
@@ -66,7 +66,23 @@ let changeColor = (e) => {
             }
         }
     }
-};
+}
+
+// win state, cannot be white because it's not a color
+//comparing four different slots 
+
+let colorMatchCheck = (one, two, three, four) => {
+    return(one == two && one === three && one === four && one !== 'whitesmoke');
+}
+
+let horizontalCheck = () => {
+    for (let row = 0; row < tableRow.length; i++) {
+        // less than 4 because you can only win 4 ways on a horizontal check 
+        for (let col = 0; col < 4; col++) {
+            
+        }
+    }
+}
 
 // different method
 // // Strict Mode(“use strict”) helps identify common issues (or “bad” parts) and also helps with “securing” JavaScript. In ES5, the Strict Mode is optional but in ES6, it’s needed for many ES6 features. So most people and tools like babel automatically add “use strict” at the top of the file putting the whole JS code in strict mode and forcing us to write better JavaScript.
