@@ -95,11 +95,11 @@ let changeColor = (e) => {
     let row = [];
 
     for (i = 5; i > -1; i--){
-        if (tableRow[i].children[column].style.backgroundColor == 'white'){
+        if (tableRow[i].children[column].style.backgroundColor == 'whitesmoke'){
             row.push(tableRow[i].children[column]);
             if (playerGo === 1){
-                row[0].style.backgroundColor = 'red';
-                if (horizontalCheck() || verticalCheck() || diagonalCheck() || diagonalCheck2()){
+                row[0].style.backgroundColor = 'purple';
+                if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()){
                     currentPlayer.textContent = `${player1} WINS!!`;
                     currentPlayer.style.color = player1Color;
                     return alert(`${player1} WINS!!`);
@@ -111,8 +111,8 @@ let changeColor = (e) => {
                     return playerGo = 2;
                 }
             }else{
-                row[0].style.backgroundColor = 'yellow';
-                if (horizontalCheck() || verticalCheck() || diagonalCheck() || diagonalCheck2()){
+                row[0].style.backgroundColor = 'orange';
+                if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()){
                     currentPlayer.textContent = `${player2} WINS!!`;
                     currentPlayer.style.color = player2Color;
                     return alert(`${player2} WINS!!`);
@@ -130,10 +130,10 @@ let changeColor = (e) => {
    
 }
 
-Array.prototype.forEach.call(tableData, (cell) => {
+Array.prototype.forEach.call(tableCell, (cell) => {
     cell.addEventListener('click', changeColor);
     // Set all slots to white for new game.
-    cell.style.backgroundColor = 'white';
+    cell.style.backgroundColor = 'whitesmoke';
 });
 
 
@@ -204,5 +204,4 @@ reset.addEventListener('click', () => {
     currentPlayer.style.color = 'black';
     return (playerGo === 1 ? currentPlayer.textContent = `${player1}'s turn` : currentPlayer.textContent = `${player2}'s turn`)
 });
-}
 
