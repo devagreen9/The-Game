@@ -4,7 +4,8 @@
 
 let tableRow = document.getElementsByTagName('tr');
 let tableCell = document.getElementsByTagName('td');
-let tableSlot = document.querySelector('.slot');
+// has to be querySelectorAll here
+let tableSlot = document.querySelectorAll('.slot');
 const currentPlayer = document.querySelector('.currentPlayer');
 const reset = document.querySelector('.reset');
 
@@ -85,14 +86,6 @@ Array.prototype.forEach.call(tableCell, (cell) => {
         }
     }
 }
-
-reset.addEventListener('click', () => {
-    tableSlot.forEach(slot => {
-        slot.style.backgroundColor = 'whitesmoke';
-    });
-    playerGo.style.backgroundColor = 'black';
-    return (currentPlayer === 1 ? playerGo.textContent = `${player1}'s turn` : playerGo.textContent = `${player2}'s turn`);
-})
 // win state, cannot be white because it's not a color
 //comparing four different slots 
 
@@ -152,6 +145,14 @@ let drawCheck = () => {
         return true;
     }
 }
+
+reset.addEventListener('click', () => {
+    tableSlot.forEach(slot => {
+        slot.style.backgroundColor = 'whitesmoke';
+    });
+    playerGo.style.color = 'black';
+    return (currentPlayer === 1 ? playerGo.textContent = `${player1}'s turn` : playerGo.textContent = `${player2}'s turn`);
+})
 
 // different method
 // // Strict Mode(“use strict”) helps identify common issues (or “bad” parts) and also helps with “securing” JavaScript. In ES5, the Strict Mode is optional but in ES6, it’s needed for many ES6 features. So most people and tools like babel automatically add “use strict” at the top of the file putting the whole JS code in strict mode and forcing us to write better JavaScript.
