@@ -36,6 +36,14 @@ player2Color = 'orange';
 let playerGo = 1;
 currentPlayer.textContent = `${player1}'s turn!`;
 
+// add event listener to each cell
+//iterate through all the cells
+// when more js is added, make sure that it stays the same color 
+Array.prototype.forEach.call(tableCell, (cell) => {
+    cell.addEventListener('click', changeColor);
+    cell.style.backgroundColor = 'whitesmoke';
+})
+
 // take in an event (e)
 let changeColor = (e) => {
     let column = e.target.cellIndex;
@@ -49,20 +57,16 @@ let changeColor = (e) => {
             row.push(tableRow[i].children[column]);
             if(currentPlayer === 1) {
                 row[0].style.backgroundColor = player1Color;
-                currentPlayer.textContent = `${player2}'s turn!`
+                currentPlayer.textContent = `${player2}'s turn!`;
                 return currentPlayer = 2;
+            } else {
+                row[0].style.backgroundColor = player2Color;
+                currentPlayer.textContent = `${player1}'s turn`;
+                return currentPlayer = 1;
             }
         }
     }
 };
-
-// add event listener to each cell
-//iterate through all the cells
-// when more js is added, make sure that it stays the same color 
-Array.prototype.forEach.call(tableCell, (cell) => {
-    cell.addEventListener('click', changeColor);
-    cell.style.backgroundColor = 'whitesmoke';
-})
 
 // different method
 // // Strict Mode(“use strict”) helps identify common issues (or “bad” parts) and also helps with “securing” JavaScript. In ES5, the Strict Mode is optional but in ES6, it’s needed for many ES6 features. So most people and tools like babel automatically add “use strict” at the top of the file putting the whole JS code in strict mode and forcing us to write better JavaScript.
