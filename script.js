@@ -57,6 +57,9 @@ Array.prototype.forEach.call(tableCell, (cell) => {
             row.push(tableRow[i].children[column]);
             if(currentPlayer === 1) {
                 row[0].style.backgroundColor = player1Color;
+                if (horizontalCheck()) {
+                    return(alert('winner'));
+                }
                 currentPlayer.textContent = `${player2}'s turn!`;
                 return currentPlayer = 2;
             } else {
@@ -76,10 +79,22 @@ let colorMatchCheck = (one, two, three, four) => {
 }
 
 let horizontalCheck = () => {
-    for (let row = 0; row < tableRow.length; i++) {
+    for (let row = 0; row < tableRow.length; row++) {
         // less than 4 because you can only win 4 ways on a horizontal check 
         for (let col = 0; col < 4; col++) {
-            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor,));
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row].children[col+1].style.backgroundColor, tableRow[row].children[col+2].style.backgroundColor, tableRow[row].children[col+3].style.backgroundColor)) {
+                return true;
+            }
+        }
+    }
+}
+
+let verticalCheck = () => {
+    for (let col = 0; col < 7; col++) {
+        for (let row = 0; row < 3; row++) {
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor, tableRow[row+1].children[col].style.backgroundColor, tableRow[row+2].children[col].style.backgroundColor, tableRow[row+3].children[col].style.backgroundColor,)) {
+                return true;
+            }
         }
     }
 }
