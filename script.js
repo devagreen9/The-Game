@@ -12,11 +12,53 @@ const reset = document.querySelector('.reset');
 
 // while i is less than all the cells on the table (42)
 for (let i = 0; i < tableCell.length; i++) {
-    // pass a function here
+    // add event listener for each cell, click
+    // pass a function here, e
+    // coordinates tr console.log will give row & column of what was clicked
     tableCell[i].addEventListener('click', (e) => {
-
+        console.log(`${e.target.parentElement.rowIndex}`, `${e.target.cellIndex}`);
     })
 }
+
+// let doesn't work here because of the function scope
+// while not player1
+while (!player1) {
+    var player1 = prompt('Enter name! You are Purple!');
+}
+player1Color = 'purple';
+
+// while not player2
+while (!player2) {
+    var player2 = prompt('Enter name! You are Orange!');
+}
+player2Color = 'orange';
+
+let playerGo = 1;
+currentPlayer.textContent = `${player1}'s turn!`;
+
+// take in an event (e)
+let changeColor = (e) => {
+    let column = e.target.cellIndex;
+    let row = [];
+
+    // starting with 5 to check the bottom index first. subtract 1 each time
+    for (let i = 5; i > -1; i--) {
+        // children = each cell of each row
+        if (tableRow[i].children) 
+    }
+};
+
+let backgroundColor = () => {
+
+};
+
+// add event listener to each cell
+//iterate through all the cells
+// when more js is added, make sure that it stays the same color 
+Array.prototype.forEach.call(tableCell, (cell) => {
+    cell.addEventListener('click', changeColor);
+    cell.style.backgroundColor = 'whitesmoke';
+})
 
 // different method
 // // Strict Mode(“use strict”) helps identify common issues (or “bad” parts) and also helps with “securing” JavaScript. In ES5, the Strict Mode is optional but in ES6, it’s needed for many ES6 features. So most people and tools like babel automatically add “use strict” at the top of the file putting the whole JS code in strict mode and forcing us to write better JavaScript.
