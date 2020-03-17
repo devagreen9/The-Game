@@ -1,3 +1,4 @@
+window.alert('Welcome to Connect 4! First player to get 4 in a row WINS!!! Loser be ashamed! To begin, each player will enter their name. Best of luck!')
 // selectors
 // The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
 // The getElementsByTagName() method returns a collection of an elements's child elements with the specified tag name, as a NodeList object.
@@ -5,6 +6,7 @@
 let tableRow = document.getElementsByTagName('tr');
 let tableCell = document.getElementsByTagName('td');
 // has to be querySelectorAll here
+// The Document method querySelectorAll() returns a static (not live) NodeList representing a list of the document's elements that match the specified group of selectors.
 let tableSlot = document.querySelectorAll('.slot');
 let currentPlayer = document.querySelector('.currentPlayer');
 const reset = document.querySelector('.reset');
@@ -86,7 +88,12 @@ let changeColor = (e) => {
 // add event listener to each cell
 //iterate through all the cells
 // when more js is added, make sure that it stays the same color
-Array.prototype.forEach.call(tableCell, (cell) => {
+//The prototype constructor allows you to add new properties and methods to the Array() object.
+// When constructing a property, ALL arrays will be given the property, and its value, as default.
+// When constructing a method, ALL arrays will have this method available.
+// Note: Array.prototype does not refer to a single array, but to the Array() object itself.
+// Note: Prototype is a global object constructor which is available for all JavaScript objects.
+Array.prototype.forEach.call(tableCell, /* callback function to get each individual cell*/ (cell) => {
     cell.addEventListener('click', changeColor);
     // Set all slots to white for new game.
     cell.style.backgroundColor = 'whitesmoke';
