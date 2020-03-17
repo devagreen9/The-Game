@@ -39,17 +39,19 @@ currentPlayer.textContent = `${player1}'s turn!`;
 // take in an event (e)
 let changeColor = (e) => {
     let column = e.target.cellIndex;
+    // empty array to push the cell into
     let row = [];
 
     // starting with 5 to check the bottom index first. subtract 1 each time
     for (let i = 5; i > -1; i--) {
         // children = each cell of each row
-        if (tableRow[i].children) 
+        if (tableRow[i].children[column].style.backgroundColor == 'whitesmoke') {
+            row.push(tableRow[i].children[column]);
+            if(currentPlayer === 1) {
+                row[0].style.backgroundColor = player1Color;
+            }
+        }
     }
-};
-
-let backgroundColor = () => {
-
 };
 
 // add event listener to each cell
