@@ -1,3 +1,26 @@
+// selectors
+// The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+// The getElementsByTagName() method returns a collection of an elements's child elements with the specified tag name, as a NodeList object.
+
+let tableRow = document.getElementsByTagName('tr');
+let tableCell = document.getElementsByTagName('td');
+// has to be querySelectorAll here
+let tableSlot = document.querySelectorAll('.slot');
+let currentPlayer = document.querySelector('.currentPlayer');
+const reset = document.querySelector('.reset');
+
+// when we click on a certain slot, we want the table coordinates to be logged
+
+// while i is less than all the cells on the table (42)
+for (let i = 0; i < tableCell.length; i++) {
+    // add event listener for each cell, click
+    // pass a function here, e
+    // coordinates tr console.log will give row & column of what was clicked
+    tableCell[i].addEventListener('click', (e) => {
+        console.log(`${e.target.parentElement.rowIndex}`, `${e.target.cellIndex}`);
+    })
+}
+
 // let doesn't work here because of the function scope
 // while not player1
 while (!player1) {
@@ -13,29 +36,6 @@ let player2Color = 'orange';
 
 let playerGo = 1;
 currentPlayer.textContent = `${player1}'s turn!`;
-
-// selectors
-// The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
-// The getElementsByTagName() method returns a collection of an elements's child elements with the specified tag name, as a NodeList object.
-
-let tableRow = document.getElementsByTagName('tr');
-let tableCell = document.getElementsByTagName('td');
-// has to be querySelectorAll here
-let tableSlot = document.querySelectorAll('.slot');
-const currentPlayer = document.querySelector('.currentPlayer');
-const reset = document.querySelector('.reset');
-
-// when we click on a certain slot, we want the table coordinates to be logged
-
-// while i is less than all the cells on the table (42)
-for (let i = 0; i < tableCell.length; i++) {
-    // add event listener for each cell, click
-    // pass a function here, e
-    // coordinates tr console.log will give row & column of what was clicked
-    tableCell[i].addEventListener('click', (e) => {
-        console.log(`${e.target.parentElement.rowIndex}`, `${e.target.cellIndex}`);
-    })
-}
 
 // take in an event (e)
 let changeColor = (e) => {
