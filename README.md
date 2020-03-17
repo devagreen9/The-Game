@@ -24,6 +24,9 @@
 https://modest-galileo-0c3426.netlify.com/
 
 
-### Unresolved Issues/ Installation Instructions: 
-*N/A
+### Unresolved Issues:
+* The reset button clears the board but doesn't start from the beginning. i.e. Player 1 input.
+
+### Installation Instructions:
+* N/A
 
