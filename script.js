@@ -86,6 +86,13 @@ Array.prototype.forEach.call(tableCell, (cell) => {
     }
 }
 
+reset.addEventListener('click', () => {
+    tableSlot.forEach(slot => {
+        slot.style.backgroundColor = 'whitesmoke';
+    });
+    playerGo.style.backgroundColor = 'black';
+    return (currentPlayer === 1 ? playerGo.textContent = `${player1}'s turn` : playerGo.textContent = `${player2}'s turn`);
+})
 // win state, cannot be white because it's not a color
 //comparing four different slots 
 
