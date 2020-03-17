@@ -21,7 +21,7 @@
 * The table has functions to log the current position and player while also checking the win state. 
 
 ### Site: 
-https://modest-galileo-0c3426.netlify.com/
+
 
 
 ### Unresolved Issues:
