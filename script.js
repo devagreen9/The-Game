@@ -89,20 +89,24 @@ currentPlayer.textContent = `${player1}'s turn!`;
 // }
 // }
 
+// take in an event (e)
 let changeColor = (e) => {
     // Get clicked column index
     let column = e.target.cellIndex;
+    // empty array to push the cell into
     let row = [];
 
+    // starting with 5 to check the bottom index first. subtract 1 each time
     for (i = 5; i > -1; i--){
+        // children = each cell of each row
         if (tableRow[i].children[column].style.backgroundColor == 'whitesmoke'){
             row.push(tableRow[i].children[column]);
             if (playerGo === 1){
                 row[0].style.backgroundColor = 'purple';
                 if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()){
-                    currentPlayer.textContent = `${player1} WINS!!`;
+                    currentPlayer.textContent = `${player1} WINS!!!`;
                     currentPlayer.style.color = player1Color;
-                    return alert(`${player1} WINS!!`);
+                    return alert(`${player1} WINS!!!`);
                 }else if (drawCheck()){
                     currentPlayer.textContent = 'DRAW!';
                     return alert('DRAW!');
@@ -113,9 +117,9 @@ let changeColor = (e) => {
             }else{
                 row[0].style.backgroundColor = 'orange';
                 if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()){
-                    currentPlayer.textContent = `${player2} WINS!!`;
+                    currentPlayer.textContent = `${player2} WINS!!!`;
                     currentPlayer.style.color = player2Color;
-                    return alert(`${player2} WINS!!`);
+                    return alert(`${player2} WINS!!!`);
                 }else if (drawCheck()){
                     currentPlayer.textContent = 'DRAW!';
                     return alert('DRAW!');
@@ -130,6 +134,9 @@ let changeColor = (e) => {
    
 }
 
+// add event listener to each cell
+//iterate through all the cells
+// when more js is added, make sure that it stays the same color
 Array.prototype.forEach.call(tableCell, (cell) => {
     cell.addEventListener('click', changeColor);
     // Set all slots to white for new game.
