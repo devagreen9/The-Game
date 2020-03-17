@@ -71,7 +71,16 @@ Array.prototype.forEach.call(tableCell, (cell) => {
             } else {
                 row[0].style.backgroundColor = player2Color;
                 currentPlayer.textContent = `${player1}'s turn`;
-                return currentPlayer = 1;
+                if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()) {
+                    currentPlayer.textContent = `${player2} wins!`;
+                    currentPlayer.style.color = player2Color;
+                    return(alert(`${player2} WINS!!!`));
+                } else if (drawCheck) {
+                    currentPlayer.textContent = `Draw Game...`;
+                    return alert('DRAW!');
+                }else {
+                    currentPlayer.textContent = `${player1}'s turn!`;
+                    return currentPlayer = 1;
             }
         }
     }
