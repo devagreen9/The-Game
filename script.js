@@ -23,3 +23,41 @@ let height, width;
 // event listener for when the window is resized
 window.addEventListener('resize', setDimensions);
 
+// in order for it to work, needs a game loop
+let timeDelta, timeLast //difference between frames and the last frame time
+requestAnimationFrame(loop)
+
+let loop = (timeNow) /*parameter of the current time*/ => {
+    // initialize the last time (timeLast)
+    if (!timeLast) {
+        timeLast = timeNow; //it will only run once
+    }
+    //calculate time difference
+    timeDelta = (timeNow - timeLast) / 1000; // to convert to seconds 
+    timeLast = timeNow;
+
+    //update
+
+    //draw
+    drawBackground();
+
+    //call next frame
+    requestAnimationFrame(loop);
+} 
+
+let createGrid = () => {
+
+}
+
+let newGame = () => {
+    createGrid();
+}
+
+let setDimensions = () => {
+    height = window.innerHeight;
+    width = window.innerWidth;
+    canv.height = height;
+    canv.width = width; 
+    newGame();
+}
+
