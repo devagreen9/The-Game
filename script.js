@@ -25,13 +25,13 @@ for (let i = 0; i < tableCell.length; i++) {
 while (!player1) {
     var player1 = prompt('Enter name! You are Purple!');
 }
-player1Color = 'purple';
+let player1Color = 'purple';
 
 // while not player2
 while (!player2) {
     var player2 = prompt('Enter name! You are Orange!');
 }
-player2Color = 'orange';
+let player2Color = 'orange';
 
 let playerGo = 1;
 currentPlayer.textContent = `${player1}'s turn!`;
@@ -79,7 +79,7 @@ let horizontalCheck = () => {
     for (let row = 0; row < tableRow.length; i++) {
         // less than 4 because you can only win 4 ways on a horizontal check 
         for (let col = 0; col < 4; col++) {
-            
+            if (colorMatchCheck(tableRow[row].children[col].style.backgroundColor,));
         }
     }
 }
