@@ -198,7 +198,7 @@ let drawCheck = () => {
 }
 
 reset.addEventListener('click', () => {
-    slots.forEach(slot => {
+    tableSlot.forEach(slot => {
         slot.style.backgroundColor = 'whitesmoke';
     })
     currentPlayer.style.color = 'black';
