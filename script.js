@@ -2,6 +2,9 @@
 
 "use strict";
 
+// colors
+const COLOR_BACKGROUND = "aliceblue";
+
 // set up canvas & context
 // The HTML5 Canvas element is an HTML tag similar to the <div>, <a>, or <table> tag, with the exception that its contents are rendered with JavaScript.  In order to leverage the HTML5 Canvas, we'll need to place the canvas tag somewhere inside the HTML document, access the canvas tag with JavaScript, create a context, and then utilize the HTML5 Canvas API to draw visualizations.
 
@@ -24,8 +27,8 @@ let height, width;
 window.addEventListener('resize', setDimensions);
 
 // in order for it to work, needs a game loop
-let timeDelta, timeLast //difference between frames and the last frame time
-requestAnimationFrame(loop)
+let timeDelta, timeLast; //difference between frames and the last frame time
+requestAnimationFrame(loop);
 
 let loop = (timeNow) /*parameter of the current time*/ => {
     // initialize the last time (timeLast)
@@ -48,6 +51,11 @@ let loop = (timeNow) /*parameter of the current time*/ => {
 let createGrid = () => {
 
 }
+
+let drawBackground = () => {
+    ctx.fillStyle = COLOR_BACKGROUND;
+    ctx.fillRect = (0, 0, width, height); // creating a rectangle with x & y set to 0 also set to the width and the height of the canvas
+};
 
 let newGame = () => {
     createGrid();
