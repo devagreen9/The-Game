@@ -38,57 +38,6 @@ let playerGo = 1;
 let winner;
 currentPlayer.textContent = `${player1}'s turn!`;
 
-// // add event listener to each cell
-// //iterate through all the cells
-// // when more js is added, make sure that it stays the same color
-// Array.prototype.forEach.call(tableCell, (cell) => {
-//     cell.addEventListener('click', changeColor);
-//     cell.style.backgroundColor = 'whitesmoke';
-// })
-
-// // take in an event (e)
-// let changeColor = (e) => {
-//     let column = e.target.cellIndex;
-//     // empty array to push the cell into
-//     let row = [];
-
-//     // starting with 5 to check the bottom index first. subtract 1 each time
-//     for (let i = 5; i > -1; i--) {
-//         // children = each cell of each row
-//         if (tableRow[i].children[column].style.backgroundColor == 'whitesmoke') {
-//             row.push(tableRow[i].children[column]);
-//             if(playerGo === 1) {
-//                 row[0].style.backgroundColor = player1Color;
-//                 if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()) {
-//                     currentPlayer.textContent = `${player1} wins!`;
-//                     currentPlayer.style.color = player1Color;
-//                     return(alert(`${player1} WINS!!!`));
-//                 } else if (drawCheck) {
-//                     currentPlayer.textContent = `Draw Game...`;
-//                     return alert('DRAW!');
-//                 }else {
-//                     currentPlayer.textContent = `${player2}'s turn!`;
-//                     return playerGo = 2;
-//                 }
-//             } else {
-//                 row[0].style.backgroundColor = player2Color;
-//                 currentPlayer.textContent = `${player1}'s turn`;
-//                 if (horizontalCheck() || verticalCheck() || diagonalCheck1() || diagonalCheck2()) {
-//                     currentPlayer.textContent = `${player2} wins!`;
-//                     currentPlayer.style.color = player2Color;
-//                     return(alert(`${player2} WINS!!!`));
-//                 } else if (drawCheck) {
-//                     currentPlayer.textContent = `Draw Game...`;
-//                     return alert('DRAW!');
-//                 }else {
-//                     currentPlayer.textContent = `${player1}'s turn!`;
-//                     return playerGo = 1;
-//             }
-//         }
-//     }
-// }
-// }
-
 // take in an event (e)
 let changeColor = (e) => {
     // Get clicked column index
