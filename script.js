@@ -1,5 +1,22 @@
+// selectors
+// The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+// The getElementsByTagName() method returns a collection of an elements's child elements with the specified tag name, as a NodeList object.
 
+let tableRow = document.getElementsByTagName('tr');
+let tableCell = document.getElementsByTagName('td');
+let tableSlot = document.querySelector('.slot');
+const currentPlayer = document.querySelector('.currentPlayer');
+const reset = document.querySelector('.reset');
 
+// when we click on a certain slot, we want the table coordinates to be logged
+
+// while i is less than all the cells on the table (42)
+for (let i = 0; i < tableCell.length; i++) {
+    // pass a function here
+    tableCell[i].addEventListener('click', (e) => {
+
+    })
+}
 
 // different method
 // // Strict Mode(“use strict”) helps identify common issues (or “bad” parts) and also helps with “securing” JavaScript. In ES5, the Strict Mode is optional but in ES6, it’s needed for many ES6 features. So most people and tools like babel automatically add “use strict” at the top of the file putting the whole JS code in strict mode and forcing us to write better JavaScript.
