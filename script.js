@@ -154,10 +154,13 @@ let drawCheck = () => {
 }
 
 reset.addEventListener('click', () => {
+    // slot is the call back function
     tableSlot.forEach(slot => {
         slot.style.backgroundColor = 'whitesmoke';
     })
-    currentPlayer.style.color = 'black';
-    return (playerGo === 1 ? currentPlayer.textContent = `${player1}'s turn` : currentPlayer.textContent = `${player2}'s turn`)
+    // currentPlayer.style.color = 'black';
+    // return player1
+    // ? = or : = otherwise
+    // return (playerGo === 1 ? currentPlayer.textContent = `${player1}'s turn` : currentPlayer.textContent = `${player2}'s turn`)
 });
 
